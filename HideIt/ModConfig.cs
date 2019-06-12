@@ -39,6 +39,7 @@
         public bool AdvisorPanel { get; set; }
         public bool TimePanel { get; set; }
         public bool ZoomAndUnlockBackground { get; set; }
+        public bool Separators { get; set; }
         public bool Seagulls { get; set; }
         public bool Wildlife { get; set; }
         public bool Flags { get; set; }

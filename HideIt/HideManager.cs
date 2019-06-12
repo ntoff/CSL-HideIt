@@ -113,6 +113,8 @@ namespace HideIt
                     ToggleUIComponent("Freecamera", ModConfig.Instance.FreeCameraButton);
                     ToggleUIComponent("PanelTime", ModConfig.Instance.TimePanel);
                     ToggleAmbiguousUIComponent("Sprite", "TSBar", ModConfig.Instance.ZoomAndUnlockBackground);
+                    ToggleAmbiguousUIComponent("Separator", "MainToolstrip", ModConfig.Instance.Separators);
+                    ToggleAmbiguousUIComponent("SmallSeparator", "MainToolstrip", ModConfig.Instance.Separators);
                     ToggleBuildingProps(
                         ModConfig.Instance.Flags,
                         ModConfig.Instance.Ads,
@@ -420,11 +422,15 @@ namespace HideIt
             {
                 UIComponent parent = GameObject.Find(parentName).GetComponent<UIComponent>();
 
-                UIComponent component = parent.Find(name).GetComponent<UIComponent>();
-
-                if (component != null)
+                if (parent != null)
                 {
-                    component.isVisible = !disable;
+                    foreach (UIComponent component in parent.components)
+                    {
+                        if (component.name.Equals(name))
+                        {
+                            component.isVisible = !disable;
+                        }
+                    }
                 }
             }
             catch (Exception e)

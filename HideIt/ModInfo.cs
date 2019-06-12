@@ -307,6 +307,13 @@ namespace HideIt
                 ModConfig.Instance.Save();
             });
 
+            selected = ModConfig.Instance.Separators;
+            group.AddCheckbox("Separators in Toolbar", selected, sel =>
+            {
+                ModConfig.Instance.Separators = sel;
+                ModConfig.Instance.Save();
+            });
+
             group = helper.AddGroup("Objects & Props");
 
             selected = ModConfig.Instance.Seagulls;
