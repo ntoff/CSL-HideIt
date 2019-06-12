@@ -392,6 +392,13 @@ namespace HideIt
                 ModConfig.Instance.ParkingSpaces = sel;
                 ModConfig.Instance.Save();
             });
+            
+            selected = ModConfig.Instance.AbandonedCars;
+            group.AddCheckbox("Abandoned Cars", selected, sel =>
+            {
+                ModConfig.Instance.AbandonedCars = sel;
+                ModConfig.Instance.Save();
+            });
 
             selected = ModConfig.Instance.CargoContainers;
             group.AddCheckbox("Cargo Containers", selected, sel =>
